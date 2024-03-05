@@ -22,5 +22,20 @@ namespace PerpustakaanSigma
             }
             return true;
         }
+        public static bool ValidateIndex(int index)
+        {
+            if(index == -1)
+            {
+                MessageBox.Show("Silahkan pilih data dari tabel terlebih dahulu!");
+                return false;
+            }
+            return true;
+        }
+        public static bool ValidateNumericTextBox(BunifuTextBox textBox, string alertName)
+        {
+            var res = int.TryParse(textBox.Text, out _);
+            if (!res) MessageBox.Show("Input " + alertName + " harus angka!");
+            return res;
+        }
     }
 }
